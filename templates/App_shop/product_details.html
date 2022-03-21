@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+{{title}}
+{% endblock %}
+
+
+{% block content_block %}
+<div class="container my-5">
+    <div class="card">
+       <div class="row">
+           <aside class=" col-sm-5 border-right">  
+               <article class="gallery_wrap">
+                    <div class="img_big_wrap">
+                        <div>
+                            <a href=""><img src="/media/{{object.mainimage}}" alt="" style="width: 450px;"></a>
+                        </div>
+                    </div>
+               </article>
+           </aside>
+           <aside class="col-sm-7">
+                <article class="card-body p-5">
+                    <h3 class="title mp-3">{{object.name}}</h3>
+                    <p class="price-detail-wrap">
+                        <span class="price h3 text-warning">
+                            <span class="currency">BDT &#2547; <span class="num">{{object.price}}</span> </span>
+                        </span>
+                    </p>
+                    <dl class="item-property">
+                        <dt>Description</dt>
+                        <dd>
+                            <p>{{object.details_text|linebreaks}}</p>
+                        </dd>
+                    </dl>
+                    <a href="{% url 'app_order:add_to_cart' pk=object.pk %}" class="btn btn-info btn-lg text-uppercase"><i class="fa fa-shopping-cart " ></i> Add to Cart </i> </a>
+            </article>
+           </aside>
+       </div> 
+    </div>
+</div>
+
+      
+
+
+
+
+{% endblock %}
